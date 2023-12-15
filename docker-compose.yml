@@ -1,0 +1,19 @@
+version: '3'
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - 8800:8000
+    depends_on:
+      - service_master
+      - service_slave
+  service_master:
+    build: ./service_master
+    depends_on:
+      - logstash
+  service_slave:
+    build: ./service_slave
+    depends_on:
+      - logstash
+  logstash:
+    build: ./logstash
