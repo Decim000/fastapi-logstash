@@ -17,3 +17,12 @@ services:
       - logstash
   logstash:
     build: ./logstash
+    image: logstash:8.11.1
+    ports:
+      - "5000:5000/tcp"
+      - "5000:5000/udp"
+      - "5044:5044"
+      - "9600:9600"
+      - "5959:5959"
+    volumes:
+      - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf 

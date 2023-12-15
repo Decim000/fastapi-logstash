@@ -1,3 +1,3 @@
 HOST_NAME = 'localhost'
-PORT = 9600
+PORT = 5959
 DATABASE_PATH = 'logstash.txt'
