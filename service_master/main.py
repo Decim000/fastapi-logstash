@@ -46,7 +46,7 @@ async def send(request: Request):
         # async with session.get(url='http://service-slave:8000/slave', headers=headers) as response:
         #     print("Status:", response.status)
         #     print("Status:", await response.text())
-        async with session.get(url='http://127.0.0.1:8001/slave', headers=headers) as response:
+        async with session.get(url='http://service-slave/slave', headers=headers) as response:
             print("Status:", response.status)
             print("Status:", await response.text())
             

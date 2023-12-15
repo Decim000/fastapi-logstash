@@ -3,26 +3,33 @@ services:
   nginx:
     build: ./nginx
     ports:
-      - 8800:8000
+      - 8800:80
     depends_on:
-      - service_master
-      - service_slave
-  service_master:
+      - service-master
+      - service-slave
+
+  service-master:
     build: ./service_master
     depends_on:
       - logstash
-  service_slave:
+    ports:
+      - 8001:80
+
+  service-slave:
     build: ./service_slave
+    ports:
+      - 8002:80
     depends_on:
       - logstash
+
   logstash:
     build: ./logstash
     image: logstash:8.11.1
     ports:
+      - "5959:5959"
       - "5000:5000/tcp"
       - "5000:5000/udp"
       - "5044:5044"
       - "9600:9600"
-      - "5959:5959"
     volumes:
       - ./logstash/logstash.conf:/usr/share/logstash/pipeline/logstash.conf 

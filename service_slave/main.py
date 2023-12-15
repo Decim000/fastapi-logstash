@@ -53,7 +53,7 @@ async def send(request: Request):
         # async with session.get(url='http://service-master:8000/master-receiving', headers=headers) as response:
         #     print("Status:", response.status)
         #     print("Status:", await response.text())
-        async with session.get(url='http://127.0.0.1:8000/master-receiving', headers=headers) as response:
+        async with session.get(url='http://service-master/master-receiving', headers=headers) as response:
             print("Status:", response.status)
             print("Status:", await response.text())
 
